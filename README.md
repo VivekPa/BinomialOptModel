@@ -7,4 +7,4 @@ import numpy as np
 ```
 It is possible to do this without the numpy module, but dealing with matrices becomes very tedious without numpy.
 ## Binomial Option Pricing Model
-Now let me explain the theory behind the model.
+Now let me explain the theory behind the model. The essential idea behind using the binomial model to price an option is to replicate the option using a combination of stocks and bonds and the value of the portfolio is equivilant to the price of the option. To understand this further, we need to explain a few terms.
