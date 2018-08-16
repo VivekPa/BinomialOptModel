@@ -12,11 +12,11 @@ class stock_vol:
 		return stock_data
 	
 	def exp_sigma(self):
-		2stock_data = stock_data**2
-		sigma = math.sqrt((2stock_data.ewm(span = 252).mean()-stock_data.ewm(span = 252).mean())*252)
+		stock_data_2 = stock_data**2
+		sigma = math.sqrt((stock_data_2.ewm(span = 252).mean()-stock_data.ewm(span = 252).mean())*252)
 		return sigma
 	
 	def mean_sigma(self):
-		2stock_data = stock_data**2
-		sigma = math.sqrt((2stock_data.mean()-stock_data.mean())*252)
+		stock_data_2 = stock_data**2
+		sigma = math.sqrt((stock_data_2.mean()-stock_data.mean())*252)
 		return sigma
