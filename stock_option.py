@@ -37,5 +37,3 @@ class stockoption():
 		'''
 		self.dt = T/float(N)
 		self.df = math.exp(-(r-self.div)*self.dt)
-
-	
