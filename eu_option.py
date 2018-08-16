@@ -21,16 +21,16 @@ class euro_option(stockoption):
 	def stocktree(self):
 		stocktree = np.zeros([self.M, self.M])
 		for i in range(self.M):
-        for j in range(self.M):
-            stocktree[j, i] = self.S0*(self.u**(i-j))*(self.d**j)
+			for j in range(self.M):
+				stocktree[j, i] = self.S0*(self.u**(i-j))*(self.d**j)
 	def optionprice(self):
 		option = np.zeros([self.M, self.M])
-    option[:, self.N] = np.maximum(np.zeros(self.M), (stocktree[:, self.N]-self.K) if self.is_call else (self.K-stocktree[:, self.N]))
-    for i in np.arange(self.M-2, -1, -1):
-        for j in range(0, i+1):
-            option[j, i] = math.exp(-self.r*self.dt) * (self.qu*option[j, i+1]+self.qd*option[j+1, i+1])
+		option[:, self.N] = np.maximum(np.zeros(self.M), (stocktree[:, self.N]-self.K) if self.is_call else (self.K-stocktree[:, self.N]))
+		for i in np.arange(self.M-2, -1, -1):
+			for j in range(0, i+1):
+				option[j, i] = math.exp(-self.r*self.dt) * (self.qu*option[j, i+1]+self.qd*option[j+1, i+1])
 
-  	return option[0, 0]
+		return option[0, 0]
 	def price(self):
 		self.int_prms()
 		self.stocktree()
