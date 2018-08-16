@@ -19,19 +19,19 @@ class stockoption():
 		'''
 		further parameters:
 
-    tk = ticker label
-		div = dividend paid
-    is_cal = is volatility calculated using stock price history
+      tk = ticker label
+      div = dividend paid
+      is_cal = is volatility calculated using stock price history
 		sigma = volatility of stock
 		is_call = call or put option
 		eu_option = European or American option
 		'''
-    self.tk = prm.get('tk', 0)
+      self.tk = prm.get('tk', 0)
 		self.div = prm.get('div', 0)
-    if is_cal == True:
-      # calculate volatility using ewm
-    else:
-      self.sigma = prm.get('sigma', 0)
+      if is_cal == True:
+        # calculate volatility using ewm
+      else:
+        self.sigma = prm.get('sigma', 0)
 		self.is_call = prm.get('is_call', True)
 		self.eu_option = prm.get('eu_option', True)
 
