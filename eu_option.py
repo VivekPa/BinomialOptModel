@@ -50,8 +50,3 @@ class euro_option(stockoption):
 		self.stocktree()
 		payoff = self.begin_tree()
 		return payoff[0, 0]
-
-
-euoption = euro_option(50, 45, 0.05, 1, 2, {'sigma': 0.5}) # example test
-
-print(euoption.price())
