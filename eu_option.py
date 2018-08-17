@@ -13,12 +13,12 @@ class euro_option(stockoption):
 	M = number of nodes
 	'''
 	def __int_prms__(self):
-		self.M = self.N + 1 
+		self.M = self.N + 1
 		self.u = math.exp(self.sigma*math.sqrt(self.dt))
 		self.d = 1./self.u
 		self.qu = (math.exp((self.r-self.div)*self.dt)-self.d)/(self.u-self.d)
 		self.qd = 1-self.qu
-		
+
 	def stocktree(self):
 		stocktree = np.zeros([self.M, self.M])
 		for i in range(self.M):
@@ -52,6 +52,6 @@ class euro_option(stockoption):
 		return payoff[0, 0]
 
 
-euoption = euro_option(50, 45, 0.05, 1, 2, {'sigma': 0.5})
+euoption = euro_option(50, 45, 0.05, 1, 2, {'sigma': 0.5}) # example test
 
 print(euoption.price())
