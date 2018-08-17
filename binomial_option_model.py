@@ -19,7 +19,7 @@ def binomial_model(N, S0, u, r, K):
         for j in range(0, i+1):
             option[j, i] = 1/(1+r) * (p*option[j, i+1]+q*option[j+1, i+1])
 
-    return option[0, 0]
+    return option
 
 
 op_price = binomial_model(5, 4, 2, 0.25, 8)

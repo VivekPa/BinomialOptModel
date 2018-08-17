@@ -2,6 +2,7 @@ import numpy as np
 from stock_option import stockoption
 import math
 
+
 class euro_option(stockoption):
 	'''
 	calculate required preliminary parameters:
@@ -11,7 +12,7 @@ class euro_option(stockoption):
 	qd = risk free downstate probability
 	M = number of nodes
 	'''
-	def int_prms(self):
+	def __int_prms__(self):
 		self.M = self.N + 1 
 		self.u = math.exp(self.sigma*math.sqrt(self.dt))
 		self.d = 1./self.u
@@ -23,16 +24,34 @@ class euro_option(stockoption):
 		for i in range(self.M):
 			for j in range(self.M):
 				stocktree[j, i] = self.S0*(self.u**(i-j))*(self.d**j)
-	def optionprice(self):
+		return stocktree
+
+	def option_price(self, stocktree):
 		option = np.zeros([self.M, self.M])
-		option[:, self.N] = np.maximum(np.zeros(self.M), (stocktree[:, self.N]-self.K) if self.is_call else (self.K-stocktree[:, self.N]))
+		if self.is_call:
+			option[:, self.M-1] = np.maximum(np.zeros(self.M), (stocktree[:, self.N] - self.K))
+		else:
+			option[:, self.M-1] = np.maximum(np.zeros(self.M), (self.K - stocktree[:, self.N]))
+		return option
+
+	def optpricetree(self, option):
 		for i in np.arange(self.M-2, -1, -1):
 			for j in range(0, i+1):
 				option[j, i] = math.exp(-self.r*self.dt) * (self.qu*option[j, i+1]+self.qd*option[j+1, i+1])
+		return option
 
-		return option[0, 0]
+	def begin_tree(self):
+		stocktree = self.stocktree()
+		payoff = self.option_price(stocktree)
+		return self.optpricetree(payoff)
+
 	def price(self):
-		self.int_prms()
+		self.__int_prms__()
 		self.stocktree()
-		payoff = self.optionprice()
-		return payoff
+		payoff = self.begin_tree()
+		return payoff[0, 0]
+
+
+euoption = euro_option(50, 45, 0.05, 1, 2, {'sigma': 0.5})
+
+print(euoption.price())

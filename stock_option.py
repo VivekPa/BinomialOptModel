@@ -1,6 +1,7 @@
 import math
 from stock_volatility import stock_vol
 
+
 class stockoption():
 
 	def __init__(self, S0, K, r, T, N, prm):
@@ -34,9 +35,10 @@ class stockoption():
 		self.tk = prm.get('tk', None)
 		self.start = prm.get('start', None)
 		self.end = prm.get('end', None)
-		stock_vol.get_data(self.tk, self.start, self.end)
 		self.div = prm.get('div', 0)
-		if is_cal == True:
+		self.is_cal = prm.get('is_cal', False)
+		if self.is_cal:
+			stock_vol.get_data(tk=self.tk, start=self.start, end=self.end)
 			stock_vol.exp_sigma()
 			self.sigma = sigma
 		else:
