@@ -37,10 +37,9 @@ class stockoption():
 		self.end = prm.get('end', None)
 		self.div = prm.get('div', 0)
 		self.is_cal = prm.get('is_cal', False)
+		self.vol = stock_vol(self.tk, self.start, self.end)
 		if self.is_cal:
-			stock_vol.get_data(tk=self.tk, start=self.start, end=self.end)
-			stock_vol.exp_sigma()
-			self.sigma = sigma
+			self.sigma = self.vol.mean_sigma()
 		else:
 			self.sigma = prm.get('sigma', 0)
 		self.is_call = prm.get('is_call', True)
