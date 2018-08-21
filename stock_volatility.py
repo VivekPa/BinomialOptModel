@@ -14,7 +14,8 @@ class StockVol:
         self.end = end
         all_data = pdr.get_data_yahoo(self.tk, start=self.start, end=self.end)
         self.stock_data = pd.DataFrame(all_data["Adj Close"])
-        self.log_return = np.log(self.stock_data) - np.log(self.stock_data.shift(1))
+        self.log_return = np.log(self.stock_data) - \
+            np.log(self.stock_data.shift(1))
 
     def mean_sigma(self):
         st = self.log_return.ewm(span=252).std()
