@@ -32,5 +32,5 @@ def binomial_model(N, S0, u, r, K):
 
 if __name__ == "__main__":
     print("Calculating example option price:")
-op_price = binomial_model(5, 4, 2, 0.25, 8)
-print(op_price)
+    op_price = binomial_model(5, 4, 2, 0.25, 8)
+    print(op_price)
