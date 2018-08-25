@@ -1,6 +1,20 @@
 # BinomialOptModel
 This is a simple python program to implement the Binomial Option Pricing Model. 
 
+## Getting Started
+This model is not meant to be used to trade real options but it is a good starting point to learn about implementing options pricing in Python. 
+
+If you would like to use it for development or to integrate it into your own model, either clone or download it. 
+
+```
+git clone https://github.com/VivekPa/BinomialOptModel
+```
+
+
+## Prerequisites 
+This model uses modules such as `pandas`, `numpy`, `pandas_dataframe`.
+
+
 ## Binomial Option Pricing Model
 Now let me explain the theory behind the model. Essentially, the idea behind using the binomial model to price an option is to replicate the option using a combination of stocks and bonds and the value of the portfolio is equivilant to the price of the option. To understand this further, we need to explain a few terms. A more detailed version of the theory will be on ReadTheDocs.
 
