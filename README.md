@@ -37,8 +37,15 @@ option_eu = EuroOption(
 print(option_eu.price())
 ```
 
+## Novel Methods Introduced
 
-## Binomial Option Pricing Model
+The binomial model for pricing stock options is a well tested and old model. The main area where improvements can be made is in predicting the volatility in the underlying asset to find the up and down factor (explained below). I have implemented a simple exponentially weighted standard deviation using the built in `pandas.DataFrame.ewm.std()` to find the volatility of the stock at the present time. This is where the key assumption and limitation of the model lies. We assume that the stock volatility will stay relatively constant over the period of our analysis. 
+
+## New Features to be Implemented
+
+I indend to improve this volatility model by implementing new research.
+
+## Overview of Binomial Option Pricing Model
 Now let me explain the theory behind the model. Essentially, the idea behind using the binomial model to price an option is to replicate the option using a combination of stocks and bonds and the value of the portfolio is equivilant to the price of the option. To understand this further, we need to explain a few terms. A more detailed version of the theory will be on ReadTheDocs.
 
 ### No Abritrage Condition
@@ -54,6 +61,6 @@ First, we set up the binomial stock price tree. Given an initial stock price `S0
 -insert diagram-
 There is also the risk free interest rate `r`, which is the rate of return on money put in a risk free bond or in a bank. One implication of the no arbitrage criteria is that $d<1+r<u$ The no arbitrage criteria means that the value of the portfolio that replicates the return of the option will equal to the price of the option. Therefore, given the return of the option at the end node, we can calculate recursively to find the value of the portfolio at the initial node, which is essentially the price of the option.
 
-## Applying the Theory
+## Conclusion
 
-The program was built in a few parts. First, I made a class with common attributes of stock options, such as strike price and time of expiry. A second class was built for the European Option, which can only be exercised at the end, and another for the American Option, which can be exercised anytime. Finally, I found the value of the portfolio recursively, solving for the price of the option.
+Although not a model to beat the market, this model is the best way to learn both about stock option pricing and Python programming. Personally, this project is my first medium scale Python project, so if you enjoyed this or learnt something, don’t forget to leave a star! If you intend to read further about options pricing, I would recommend Stochastic Calculus for Finance I and II by Steven Shreve.
