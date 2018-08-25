@@ -12,7 +12,30 @@ git clone https://github.com/VivekPa/BinomialOptModel
 
 
 ## Prerequisites 
-This model uses modules such as `pandas`, `numpy`, `pandas_dataframe`.
+This model uses modules such as `pandas`, `numpy`, `pandas_dataframe` and `fix_yahoo_finance`. You can install them using `pip` with the following code:
+```
+pip install pandas numpy pandas_dataframe fix_yahoo_finance
+```
+
+## Preliminary Example
+The following is an example of how this model will be implemented to price an option in real time. 
+
+Consider and Apple stock option, with strike price 215, spot price 217.58, risk free interest rate 0.05, time 0.1 and 40 iterations. We analyse the stock price from 2017-08-18 to 2018-08-18 to find the volatility. Now, to price the option, the following code will be executed:
+
+```python
+from eu_option import EuroOption
+
+option_eu = EuroOption(
+    217.58,
+    215,
+    0.05,
+    0.1,
+    40,
+    {"tk": "AAPL", "is_cal": True, "start": "2017-08-18", "end": "2018-08-18"},
+)
+
+print(option_eu.price())
+```
 
 
 ## Binomial Option Pricing Model
