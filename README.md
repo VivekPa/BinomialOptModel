@@ -15,7 +15,7 @@ For our model, we assume that there is no arbitrage. We will see later that cert
 
 First, we set up the binomial stock price tree. Given an initial stock price `S0`, we make a model of how the stock is gonna change over time. At every increment of time, the stock can either go up or down by a certain factor `u` or `d` respectively. This forms the binomial stock price tree. 
 -insert diagram-
-The no arbitrage criteria means that the value of the portfolio that replicates the return of the option will equal to the price of the option. Therefore, given the return of the option at the end node, we can calculate recursively to find the value of the portfolio at the initial node, which is essentially the price of the option.
+There is also the risk free interest rate `r`, which is the rate of return on money put in a risk free bond or in a bank. One implication of the no arbitrage criteria is that $d<1+r<u$ The no arbitrage criteria means that the value of the portfolio that replicates the return of the option will equal to the price of the option. Therefore, given the return of the option at the end node, we can calculate recursively to find the value of the portfolio at the initial node, which is essentially the price of the option.
 
 ## Applying the Theory
 
