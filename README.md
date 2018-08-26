@@ -42,8 +42,10 @@ The binomial model for pricing stock options is a well tested and old model. The
 
 1. Customisation of the model is imperative. 
     + The presence of exotic options require the model be flexible. This is why I have separated each component of the model into classes in different files.
-2. Volatility modelling must be improved to predict volatility more accurately. I have implemented a simple exponentially weighted standard deviation to calculate the volatility from stock price data taken from Yahoo Finance.
-3. A key assumption is that volatility will remain relatively constant in the period of our analysis. Although it is a relatively loose assumption, it is required for the model to work. 
+2. Volatility modelling must be improved to predict volatility more accurately. 
+    + I have implemented a simple exponentially weighted standard deviation to calculate the volatility from stock price data taken from Yahoo Finance.
+3. A key assumption is that volatility will remain relatively constant in the period of our analysis. 
+    + Although it is a relatively loose assumption, it is required for the model to work. 
 
 
 
