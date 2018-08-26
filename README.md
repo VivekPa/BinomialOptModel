@@ -54,7 +54,7 @@ The binomial model for pricing stock options is a well tested and old model. The
 I indend to improve this volatility model by implementing new research.
 
 ## Overview of Binomial Option Pricing Model
-Now let me explain the theory behind the model. Essentially, the idea behind using the binomial model to price an option is to replicate the option using a combination of stocks and bonds and the value of the portfolio is equivilant to the price of the option. To understand this further, we need to explain a few terms. A more detailed version of the theory will be on ReadTheDocs.
+Now let me explain the theory behind the model. Essentially, the idea behind using the binomial model to price an option is to replicate the option using a combination of stocks and bonds and the value of the portfolio is equivilant to the price of the option. To understand this further, we need to explain a few terms.
 
 ### No Abritrage Condition
 
