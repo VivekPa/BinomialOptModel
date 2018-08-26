@@ -1,5 +1,5 @@
 # BinomialOptModel
-This is a simple python program to implement the Binomial Option Pricing Model. 
+This is a python program to price American and European Options using the Binomial Option Pricing Model. 
 
 ## Getting Started
 This model is not meant to be used to trade real options but it is a good starting point to learn about implementing options pricing in Python. 
