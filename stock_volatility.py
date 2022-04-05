@@ -1,10 +1,11 @@
 import numpy as np
 import pandas as pd
 import pandas_datareader.data as pdr
-import fix_yahoo_finance as yf
+import yfinance as yf #Module name changed
 import arch
 import matplotlib.pyplot as plt
 from statsmodels.graphics.tsaplots import plot_acf
+from arch.__future__ import reindexing #Surpress Warning Due to dependency Changes
 yf.pdr_override()
 
 
